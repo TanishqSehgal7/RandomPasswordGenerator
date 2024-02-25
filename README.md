@@ -6,7 +6,7 @@
 
 ![image](https://github.com/TanishqSehgal7/RandomPasswordGenerator/assets/43927740/018460ef-daec-4221-b5fc-fb8899cc1756)
 
-Password Length cannot be zero
+# Password Length cannot be zero
 ![image](https://github.com/TanishqSehgal7/RandomPasswordGenerator/assets/43927740/3858d643-e031-4622-a760-7bcb761ff0cb)
 
 Random password of custom length set to 15 characters, including alpha numeric and special character values
