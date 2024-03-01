@@ -22,14 +22,15 @@ body {
 .display {
     display: flex;
     flex-direction: column;
-    /* background-color: #00ffd5; */
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .displapswd {
     display: flex;
     flex-direction: row;
     margin: 20px 0px;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
 }
 
@@ -67,16 +68,22 @@ h1>span {
 #copyicon {
     height: 30px;
     width: 30px;
-    padding: 0px 10px;
+    padding: 10px;
+    margin: 0px 10px;
 }
 
 #displaypassword {
+    resize: none;
+    max-width: 300px;
     padding: 10px;
     border-radius: 10px;
+    border: none;
 }
 
 #copyicon:hover {
-    scale: 1.01;
+    /* scale: 1.01; */
+    background-color: #143b5e;
+    border-radius: 5px;
 }
 
 
@@ -102,11 +109,43 @@ img {
     color: #00ffd5;
 }
 
-.lengthvaluedisplay {
+.lengthvaluedisplay, .displacountDiv {
     display: flex;
     flex-direction: column;
     padding: 10px;
-    margin: 0px 20px;
+    margin: 0px 10px;
+}
+
+.displacountDiv {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.countOfPass {
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: medium;
+    border: none;
+    background: rgb(255, 255, 255);
+    opacity: 0.6;
+}
+
+.countOfPass>option {
+    text-align: center;
+    font-size: medium;
+    border: none;
+    background: rgb(255, 255, 255);
+    opacity: 0.6;
+    padding: 20px;    
+}
+
+.countOfPass>option:hover{
+    scale: 1.02;
+    background: #143b5e;
+    color: #00ffd5;
 }
 
 /* input[type="range"] {
