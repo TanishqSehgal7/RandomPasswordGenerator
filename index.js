@@ -6,10 +6,26 @@ const generatePasswdBtn = document.querySelector(".generateBtn")
 const specialCharCheckBox = document.getElementById("specialcharscheckbox")
 const passwordTextBox = document.getElementById("displaypassword")
 const copyButton = document.getElementById("copyicon")
+const passwordCountDropdown = document.querySelector(".countOfPass")
+const dropDownValues = document.getElementsByClassName('count')
+let allPasswords = new Array(0)
 
 let isCustomLengthApplied = false
 let isSpecialCharIncluded = false
+
+
 let numberOfPasswords = 1
+
+passwordCountDropdown.addEventListener('change', function(e){
+    numberOfPasswords = e.target.value
+    if(allPasswords.length != 0) {
+        allPasswords = []
+        passwordTextBox.value = ''
+    }
+    console.log(allPasswords) 
+})
+
+console.log(numberOfPasswords)
 
 sliderDiv.style.visibility = "hidden"
 copyButton.style.visibility = "hidden"
@@ -19,9 +35,13 @@ specialCharCheckBox.addEventListener('change', function(e){
     if(e.target.checked) {
         isSpecialCharIncluded = true
         passwordTextBox.value = ""
+        allPasswords = []
+        console.log(allPasswords)
     } else if(!e.target.checked) {
         isSpecialCharIncluded = false
         passwordTextBox.value = ""
+        allPasswords = []
+        console.log(allPasswords)
     }
 })
 
@@ -31,6 +51,8 @@ customLengthCheckBox.addEventListener('change', function(e){
         sliderDiv.style.visibility = "visible"
         isCustomLengthApplied = true
         passwordTextBox.value = ""
+        allPasswords = []
+        console.log(allPasswords)
         lengthslider.value = 0
         lengthValDisplay.textContent = `Password Length: ${lengthslider.value}`
         lengthOfPassword = lengthslider.value
@@ -39,6 +61,8 @@ customLengthCheckBox.addEventListener('change', function(e){
         isCustomLengthApplied = false
         lengthOfPassword = 10
         passwordTextBox.value = ""
+        allPasswords = []
+        console.log(allPasswords)
     }
 })
 
@@ -56,11 +80,20 @@ lengthslider.addEventListener('click', function(){
     lengthValDisplay.textContent = `Password Length: ${lengthslider.value}`
     lengthOfPassword = lengthslider.value
     passwordTextBox.value = ""
+    allPasswords = []
+    console.log(allPasswords)
 })
 
 generatePasswdBtn.addEventListener('click', function(){
     // generate password and set inside input text box
-    generatePassword(isSpecialCharIncluded, isCustomLengthApplied,lengthOfPassword)
+    allPasswords = []
+    let pswd = ""
+    for (let index = 0; index < numberOfPasswords; index++) {
+        pswd = generatePassword(isSpecialCharIncluded, isCustomLengthApplied,lengthOfPassword)
+        allPasswords.push(pswd)
+    }
+    populateGeneratedPasswordsInTextArea(allPasswords)
+    console.log(allPasswords)
     copyButton.style.visibility = "visible"
 })
 
@@ -95,30 +128,30 @@ function generatePassword(isSpecialCharIncluded, isCustomLengthApplied, lengthOf
         if(isSpecialCharIncluded && !isCustomLengthApplied) {
 
             // password should include special chars and should be of default length 10
-                allowedChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+{}[]|;:,.<>?'
+                allowedChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+{}[]|;<>?'
                 password = makePasswordFromSpecificValueDictionary(allowedChars, lengthOfPassword)
-                passwordTextBox.value = password
+                // passwordTextBox.value = password
     
         } else if(!isSpecialCharIncluded && isCustomLengthApplied) {
     
             // password should not include special chars and should be of custom length
                 allowedChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
                 password = makePasswordFromSpecificValueDictionary(allowedChars, lengthOfPassword)
-                passwordTextBox.value = password
+                // passwordTextBox.value = password
     
         } else if(!isSpecialCharIncluded && !isCustomLengthApplied) {
     
             // password should not include special chars and should be of default length 10
             allowedChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
             password = makePasswordFromSpecificValueDictionary(allowedChars, lengthOfPassword)
-            passwordTextBox.value = password
+            // passwordTextBox.value = password
     
         } else if(isSpecialCharIncluded && isCustomLengthApplied) {
     
             // password should include special chara and should be of custom length
-            allowedChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+{}[]|;:,.<>?'
+            allowedChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+{}[]|;<>?'
             password = makePasswordFromSpecificValueDictionary(allowedChars, lengthOfPassword)
-            passwordTextBox.value = password
+            // passwordTextBox.value = password
         }
     } else {
         // show error message
@@ -147,5 +180,13 @@ function makePasswordFromSpecificValueDictionary(charDictionary, lengthOfPasswor
     }
     return result
 
+}
+
+function populateGeneratedPasswordsInTextArea(allPasswords) {
+    let pswdString = ''
+    allPasswords.forEach(element => {
+        pswdString += element + "\n"
+    });
+    passwordTextBox.value = pswdString
 }
 

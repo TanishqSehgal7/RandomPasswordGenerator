@@ -31,18 +31,31 @@
             </div>
 
             <div class="displacountDiv">
-                <p id="numberofpassdisp">How many passwords do you need? </p>
-                <div class="countOfPass">
-                   <p class="1">1</p>
-                   <p class="10">10</p>
-                   <p class="50">50</p>
-                   <p class="100">100</p>
+                <p id="numberofpassdisp">Select number of passwords you need:</p>
+                <select class="countOfPass">
+                   <option class="1 count" value="1" selected>1</option>
+                   <option class="10 count" value="10">10</option>
+                   <option class="50 count" value="50">50</option>
+                   <option class="100 count" value="100">100</option>
+                </select>
+
+                <div class="display">
+                    <div class="displapswd">
+                        <textarea rows="20" id="displaypassword" readonly placeholder="You can copy the generated passwords from here"></textarea>
+                        <img id="copyicon" src="./copy.png">
+                    </div>
+        
+                    <div class="generateBtn">
+                        <img src="./lightning.png">
+                        <h4>Generate Password</h4>
+                    </div>
                 </div>
+
             </div>
 
-            <div class="display">
+            <!-- <div class="display">
                 <div class="displapswd">
-                    <input type="text" id="displaypassword" placeholder="Password">
+                    <textarea rows="10" cols="10" id="displaypassword" readonly placeholder="You can copy the generated passwords from here"></textarea>
                     <img id="copyicon" src="./copy.png">
                 </div>
     
@@ -50,7 +63,7 @@
                     <img src="./lightning.png">
                     <h4>Generate Password</h4>
                 </div>
-            </div>
+            </div> -->
 
         </div>
 
