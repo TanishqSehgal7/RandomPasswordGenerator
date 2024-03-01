@@ -86,15 +86,39 @@ lengthslider.addEventListener('click', function(){
 
 generatePasswdBtn.addEventListener('click', function(){
     // generate password and set inside input text box
-    allPasswords = []
-    let pswd = ""
-    for (let index = 0; index < numberOfPasswords; index++) {
-        pswd = generatePassword(isSpecialCharIncluded, isCustomLengthApplied,lengthOfPassword)
-        allPasswords.push(pswd)
+
+    if(isCustomLengthApplied && lengthOfPassword!=0) {
+        allPasswords = []
+        let pswd = ""
+        for (let index = 0; index < numberOfPasswords; index++) {
+            pswd = generatePassword(isSpecialCharIncluded, isCustomLengthApplied,lengthOfPassword)
+            allPasswords.push(pswd)
+        }
+        populateGeneratedPasswordsInTextArea(allPasswords)
+        console.log(allPasswords)
+        copyButton.style.visibility = "visible"
+    } else {
+        // show error message
+        const errorDisplayElemet = document.createElement('p')
+        errorDisplayElemet.style.color = "rgb(255, 131, 131)"
+        errorDisplayElemet.innerText = "Password Length cannot be 0"
+        errorDisplayElemet.style.fontSize = "20px"
+
+        document.querySelector(".container").appendChild(errorDisplayElemet)
+
+        window.scrollTo({
+            top: window.innerHeight,
+            behavior: "smooth"
+        });
+
+        setTimeout(function(){
+            errorDisplayElemet.remove()
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        },2000)
     }
-    populateGeneratedPasswordsInTextArea(allPasswords)
-    console.log(allPasswords)
-    copyButton.style.visibility = "visible"
 })
 
 //functionality for copying the generated password using the clipboard API
@@ -153,19 +177,20 @@ function generatePassword(isSpecialCharIncluded, isCustomLengthApplied, lengthOf
             password = makePasswordFromSpecificValueDictionary(allowedChars, lengthOfPassword)
             // passwordTextBox.value = password
         }
-    } else {
-        // show error message
-        const errorDisplayElemet = document.createElement('p')
-        errorDisplayElemet.style.color = "rgb(255, 131, 131)"
-        errorDisplayElemet.innerText = "Password Length cannot be 0"
-        errorDisplayElemet.style.fontSize = "20px"
+    } 
+    // else {
+    //     // show error message
+    //     const errorDisplayElemet = document.createElement('p')
+    //     errorDisplayElemet.style.color = "rgb(255, 131, 131)"
+    //     errorDisplayElemet.innerText = "Password Length cannot be 0"
+    //     errorDisplayElemet.style.fontSize = "20px"
 
-        document.querySelector(".container").appendChild(errorDisplayElemet)
+    //     document.querySelector(".container").appendChild(errorDisplayElemet)
 
-        setTimeout(function(){
-            errorDisplayElemet.remove()
-        },2000)
-    }
+    //     setTimeout(function(){
+    //         errorDisplayElemet.remove()
+    //     },2000)
+    // }
 
     return password;
 } 
