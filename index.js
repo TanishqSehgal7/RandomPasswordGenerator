@@ -15,6 +15,7 @@ let isSpecialCharIncluded = false
 
 
 let numberOfPasswords = 1
+let lengthOfPassword = Number(10)
 
 passwordCountDropdown.addEventListener('change', function(e){
     numberOfPasswords = e.target.value
@@ -55,11 +56,11 @@ customLengthCheckBox.addEventListener('change', function(e){
         console.log(allPasswords)
         lengthslider.value = 0
         lengthValDisplay.textContent = `Password Length: ${lengthslider.value}`
-        lengthOfPassword = lengthslider.value
+        lengthOfPassword = Number(lengthslider.value)
     } else if(!e.target.checked) {
         sliderDiv.style.visibility = "hidden"
         isCustomLengthApplied = false
-        lengthOfPassword = 10
+        lengthOfPassword = Number(10)
         passwordTextBox.value = ""
         allPasswords = []
         console.log(allPasswords)
@@ -67,18 +68,18 @@ customLengthCheckBox.addEventListener('change', function(e){
 })
 
 if(!customLengthCheckBox.checked) {
-    lengthOfPassword = 10 // using default password length when customlength is not applied
+    lengthOfPassword = Number(10) // using default password length when customlength is not applied
     console.log(lengthOfPassword)
 }
 
 lengthslider.addEventListener('input', function(){
     lengthValDisplay.textContent = `Password Length: ${lengthslider.value}`
-    lengthOfPassword = lengthslider.value
+    lengthOfPassword = Number(lengthslider.value)
 })
         
 lengthslider.addEventListener('click', function(){
     lengthValDisplay.textContent = `Password Length: ${lengthslider.value}`
-    lengthOfPassword = lengthslider.value
+    lengthOfPassword = Number(lengthslider.value)
     passwordTextBox.value = ""
     allPasswords = []
     console.log(allPasswords)
@@ -86,8 +87,8 @@ lengthslider.addEventListener('click', function(){
 
 generatePasswdBtn.addEventListener('click', function(){
     // generate password and set inside input text box
-
-    if(isCustomLengthApplied && lengthOfPassword!=0) {
+    console.log(`Length: ${lengthOfPassword}`)
+    if(lengthOfPassword!=0) {
         allPasswords = []
         let pswd = ""
         for (let index = 0; index < numberOfPasswords; index++) {
@@ -97,8 +98,9 @@ generatePasswdBtn.addEventListener('click', function(){
         populateGeneratedPasswordsInTextArea(allPasswords)
         console.log(allPasswords)
         copyButton.style.visibility = "visible"
-    } else {
+    } else if(isCustomLengthApplied && lengthOfPassword === 0) {
         // show error message
+        console.log(`Length: ${lengthOfPassword}`)
         const errorDisplayElemet = document.createElement('p')
         errorDisplayElemet.style.color = "rgb(255, 131, 131)"
         errorDisplayElemet.innerText = "Password Length cannot be 0"
@@ -113,10 +115,10 @@ generatePasswdBtn.addEventListener('click', function(){
 
         setTimeout(function(){
             errorDisplayElemet.remove()
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
+            // window.scrollTo({
+            //     top: 0,
+            //     behavior: "smooth"
+            // });
         },2000)
     }
 })
