@@ -102,11 +102,30 @@ img {
     color: #00ffd5;
 }
 
-.lengthvaluedisplay {
+.lengthvaluedisplay, .displacountDiv {
     display: flex;
     flex-direction: column;
     padding: 10px;
     margin: 0px 20px;
+}
+
+.countOfPass {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.countOfPass>p {
+    padding: 20px;
+    background: #143346;
+    border-radius: 5px;
+}
+
+.countOfPass>p:hover{
+    scale: 1.02;
+    background: #143b5e;
+    color: #00ffd5;
 }
 
 /* input[type="range"] {

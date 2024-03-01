@@ -7,9 +7,9 @@ const specialCharCheckBox = document.getElementById("specialcharscheckbox")
 const passwordTextBox = document.getElementById("displaypassword")
 const copyButton = document.getElementById("copyicon")
 
-let lengthOfPassword = 0
 let isCustomLengthApplied = false
 let isSpecialCharIncluded = false
+let numberOfPasswords = 1
 
 sliderDiv.style.visibility = "hidden"
 copyButton.style.visibility = "hidden"
