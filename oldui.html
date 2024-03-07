@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link href="./index.css" rel="stylesheet">
+</head>
+<body>
+
+    <h1>Pass<span>Pro</span></h1>
+
+    <div class="container">
+        
+        <h1>Generate a <br> <span>Random Password</span></h1>
+
+        <div class="checkboxcontainer">
+            <div class="checkbox">
+                <input type="checkbox" id="specialcharscheckbox">
+                <p>Include Special Characters</p>
+            </div>
+    
+            <div class="checkbox2">
+                <input type="checkbox" id="defaultlengthchbx">
+                <p>Set Custom Length for Password</p>
+            </div>
+        
+            <div class="lengthvaluedisplay">
+                <p id="lengthdisplay">Length: </p>
+                <input type="range" id="lengthslider" min="0" max="30" step="1" value="0">
+            </div>
+
+            <div class="displacountDiv">
+                <p id="numberofpassdisp">Select number of passwords you need:</p>
+                <select class="countOfPass">
+                   <option class="1 count" value="1" selected>1</option>
+                   <option class="10 count" value="10">10</option>
+                   <option class="50 count" value="50">50</option>
+                   <option class="100 count" value="100">100</option>
+                </select>
+
+                <div class="display">
+                    <div class="displapswd">
+                        <textarea rows="20" id="displaypassword" readonly placeholder="You can copy the generated passwords from here"></textarea>
+                        <img id="copyicon" src="./copy.png">
+                    </div>
+        
+                    <div class="generateBtn">
+                        <img src="./lightning.png">
+                        <h4>Generate Password</h4>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- <div class="display">
+                <div class="displapswd">
+                    <textarea rows="10" cols="10" id="displaypassword" readonly placeholder="You can copy the generated passwords from here"></textarea>
+                    <img id="copyicon" src="./copy.png">
+                </div>
+    
+                <div class="generateBtn">
+                    <img src="./lightning.png">
+                    <h4>Generate Password</h4>
+                </div>
+            </div> -->
+
+        </div>
+
+    </div>
+    
+</body>
+
+<script src="./index.js"></script>
+
+</html>

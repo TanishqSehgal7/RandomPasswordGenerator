@@ -8,10 +8,15 @@ const passwordTextBox = document.getElementById("displaypassword")
 const copyButton = document.getElementById("copyicon")
 const passwordCountDropdown = document.querySelector(".countOfPass")
 const dropDownValues = document.getElementsByClassName('count')
+const numberCheckBox = document.getElementById("includeNumbers")
+const upperCaseCheckBox = document.getElementById("upperCaseLetters")
+
 let allPasswords = new Array(0)
 
 let isCustomLengthApplied = false
 let isSpecialCharIncluded = false
+let isNumberIncluded = false
+let isUpperCaseIncluded = false
 
 
 let numberOfPasswords = 1
@@ -29,7 +34,7 @@ passwordCountDropdown.addEventListener('change', function(e){
 console.log(numberOfPasswords)
 
 sliderDiv.style.visibility = "hidden"
-copyButton.style.visibility = "hidden"
+// copyButton.style.visibility = "hidden"
 
 specialCharCheckBox.addEventListener('change', function(e){
     e.preventDefault()
@@ -40,6 +45,36 @@ specialCharCheckBox.addEventListener('change', function(e){
         console.log(allPasswords)
     } else if(!e.target.checked) {
         isSpecialCharIncluded = false
+        passwordTextBox.value = ""
+        allPasswords = []
+        console.log(allPasswords)
+    }
+})
+
+numberCheckBox.addEventListener('change', function(e){
+    e.preventDefault()
+    if(e.target.checked) {
+        isNumberIncluded = true
+        passwordTextBox.value = ""
+        allPasswords = []
+        console.log(allPasswords)
+    } else if(!e.target.checked) {
+        isNumberIncluded = false
+        passwordTextBox.value = ""
+        allPasswords = []
+        console.log(allPasswords)
+    }
+})
+
+upperCaseCheckBox.addEventListener('change', function(e){
+    e.preventDefault()
+    if(e.target.checked) {
+        isUpperCaseIncluded = true
+        passwordTextBox.value = ""
+        allPasswords = []
+        console.log(allPasswords)
+    } else if(!e.target.checked) {
+        isUpperCaseIncluded = false
         passwordTextBox.value = ""
         allPasswords = []
         console.log(allPasswords)
@@ -92,12 +127,12 @@ generatePasswdBtn.addEventListener('click', function(){
         allPasswords = []
         let pswd = ""
         for (let index = 0; index < numberOfPasswords; index++) {
-            pswd = generatePassword(isSpecialCharIncluded, isCustomLengthApplied,lengthOfPassword)
+            pswd = generatePassword2(isSpecialCharIncluded, isCustomLengthApplied,lengthOfPassword)
             allPasswords.push(pswd)
         }
         populateGeneratedPasswordsInTextArea(allPasswords)
         console.log(allPasswords)
-        copyButton.style.visibility = "visible"
+        // copyButton.style.visibility = "visible"
     } else if(isCustomLengthApplied && lengthOfPassword === 0) {
         // show error message
         console.log(`Length: ${lengthOfPassword}`)
@@ -215,5 +250,85 @@ function populateGeneratedPasswordsInTextArea(allPasswords) {
         pswdString += element + "\n"
     });
     passwordTextBox.value = pswdString
+}
+
+function generatePassword2(isSpecialCharIncluded, isCustomLengthApplied, lengthOfPassword) {
+
+    let password = ''
+    let allowedChars = 'abcdefghijklmnopqrstuvwxyz';
+
+    // isSpecialCharIncluded = false
+    // let isNumberIncluded = false
+    // let isUpperCaseIncluded 
+
+
+    if(lengthOfPassword!=0) {
+        if(isSpecialCharIncluded && !isNumberIncluded && !isUpperCaseIncluded) {
+
+                // allowedChars = 'abcdefghijklmnopqrstuvwxyz!@#$%^&*()_+{}[]|;<>?'
+                allowedChars = '@d${ie&u|vac#;ks+zn*o}bxqf<m(gyprh%!)j]>^t?w[l_'
+                password = makePasswordFromSpecificValueDictionary(allowedChars, lengthOfPassword)
+                // passwordTextBox.value = password
+    
+        } else if(isNumberIncluded && !isSpecialCharIncluded && !isUpperCaseIncluded) {
+    
+                // allowedChars = 'abcdefghijklmnopqrstuvwxyz0123456789'
+                allowedChars = 'zq4w6pxd05li3kg9ychbe12os7a8rtvfunmj'
+                password = makePasswordFromSpecificValueDictionary(allowedChars, lengthOfPassword)
+                // passwordTextBox.value = password
+    
+        } else if(isUpperCaseIncluded && !isSpecialCharIncluded && !isNumberIncluded) {
+    
+            // allowedChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+            allowedChars = 'WiEDRyqmXxhfGeQjwzBcOgkKSJLHpNPFtTVdlbZuvrsMoIAYanUC'
+            password = makePasswordFromSpecificValueDictionary(allowedChars, lengthOfPassword)
+            // passwordTextBox.value = password
+    
+        } else if(isSpecialCharIncluded && isNumberIncluded && !isUpperCaseIncluded) {
+    
+            // password should include special chara and should be of custom length
+            // allowedChars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+{}[]|;<>?'
+            allowedChars = '|u{4s8_zfpw^)xq>[kn?b#t2@(1]%3aov7j&h5i};0mlc$+gyd!re6<9*'
+            password = makePasswordFromSpecificValueDictionary(allowedChars, lengthOfPassword)
+            // passwordTextBox.value = password
+        } else if(isSpecialCharIncluded && !isNumberIncluded && isUpperCaseIncluded) {
+
+            allowedChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+{}[]|;<>?'
+            allowedChars = 's;Xg@(mT<YEvrRU&BCpwQqeL}|thD_fW*zJ>y?SlHdO)!bnV%+]ujGZ{[cP$^Ki#AxkFaIMNo'
+            password = makePasswordFromSpecificValueDictionary(allowedChars, lengthOfPassword)
+
+        } else if(!isSpecialCharIncluded && isNumberIncluded && isUpperCaseIncluded) {
+
+            // allowedChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+            allowedChars = 'h0JreSNzwYfkOVxXE7vQ3RndbZ6ogT1pFcBLGqa9y8MAlt2m4s5CKujUDIiHWP'
+            password = makePasswordFromSpecificValueDictionary(allowedChars, lengthOfPassword)
+
+        } else if(isSpecialCharIncluded && isNumberIncluded && isUpperCaseIncluded) {
+
+            // allowedChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+{}[]|;<>?'
+            allowedChars = '?th_rLbNR&gc]6E%ZeYUv;5$sM*>IwF}P1<92jOK{[JA(qGdnVTXWuySHaxzB|#i!k+73D8lCo)^4@m0pfQ'
+            password = makePasswordFromSpecificValueDictionary(allowedChars, lengthOfPassword)
+        } 
+        else {
+            // if no checkbox is checked
+            allowedChars = 'abcdefghijklmnopqrstuvwxyz'
+            password = makePasswordFromSpecificValueDictionary(allowedChars, lengthOfPassword)
+        }
+    } 
+    // else {
+    //     // show error message
+    //     const errorDisplayElemet = document.createElement('p')
+    //     errorDisplayElemet.style.color = "rgb(255, 131, 131)"
+    //     errorDisplayElemet.innerText = "Password Length cannot be 0"
+    //     errorDisplayElemet.style.fontSize = "20px"
+
+    //     document.querySelector(".container").appendChild(errorDisplayElemet)
+
+    //     setTimeout(function(){
+    //         errorDisplayElemet.remove()
+    //     },2000)
+    // }
+
+    return password;
 }
 

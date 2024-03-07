@@ -1,6 +1,6 @@
 body {
-    background: #11181d;
-    color: rgb(255, 255, 255);
+    background: #062936;
+    color: rgb(79, 135, 255);
     /* background: linear-gradient(to bottom right, #1b4366, #011220); */
     color: white;
     font-family: 'Courier New', Courier, monospace;
@@ -12,7 +12,7 @@ body {
 }
 
 h1>span {
-    color: #4bffab;
+    color: #00ffd5;
     border-bottom: solid 2px #00ffd5;
 }
 
@@ -32,7 +32,7 @@ h1>span {
     flex-direction: column;
     justify-content: center;
     /* align-items: center; */
-    background: #202930;
+    background: #143a47;
     padding: 50px 50px 10px 50px;
     border-radius: 10px;
     margin-bottom: 10px;
@@ -44,12 +44,11 @@ h1>span {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    /* background: #051829; */
+    background: #051829;
     margin: 5px;
     border-radius: 5px;
     width: auto;
     height: auto;
-    border: solid 1px #4bffab;
 }
 
 .spcharcontainer>input,.includeNumbersContainer>input,.includeUpperCaseContainer>input,.customLengthContainer>input  {
@@ -62,12 +61,11 @@ h1>span {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    /* background: #051829; */
+    background: #051829;
     margin: 5px;
     border-radius: 5px;
     width: auto;
     height: auto;
-    border: solid 1px #4bffab;
 }
 
 .lengthvaluedisplay {
@@ -76,9 +74,8 @@ h1>span {
     flex-direction: column;
     justify-content: center;
     margin: 5px;
-    /* background: #051829; */
+    background: #051829;
     border-radius: 5px;
-    border: solid 1px #4bffab;
 }
 
 .quantityOfPasswordsContainer {
@@ -87,8 +84,7 @@ h1>span {
     flex-direction: column;
     justify-content: center;
     margin: 5px;
-    /* background: #051829; */
-    border: solid 1px #4bffab;
+    background: #051829;
     border-radius: 5px;
 }
 
@@ -110,18 +106,15 @@ textarea {
     width: auto;
     height: auto;
     margin: 10px;
-    color: rgb(255, 255, 255);
-    font-weight: 900;
-    font-size: larger;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    /* background: #143346; */
+    background: #143346;
     border-radius: 10px;
     border: solid 1px #00ffd5;
-    background: linear-gradient(to left,#00fdd3,  #63ff9f);
 }
 
 .generateBtn:hover {
     scale: 1.01;
+    background: #143b5e;
+    color: #00ffd5;
 }
 
 .copyiconContainer {
@@ -133,12 +126,15 @@ textarea {
     width: auto;
     height: auto;
     margin: 10px;
+    background: #143346;
     border-radius: 10px;
-    border: solid 1px #4bffab;
+    border: solid 1px #00ffd5;
 }
 
 .copyiconContainer:hover {
     scale: 1.01;
+    background: #143b5e;
+    color: #00ffd5;
 }
 
 .quantityOfPasswordsContainer>select{
