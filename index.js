@@ -8,10 +8,13 @@ const passwordTextBox = document.getElementById("displaypassword")
 const copyButton = document.getElementById("copyicon")
 const passwordCountDropdown = document.querySelector(".countOfPass")
 const dropDownValues = document.getElementsByClassName('count')
+
 let allPasswords = new Array(0)
 
 let isCustomLengthApplied = false
 let isSpecialCharIncluded = false
+let isNumberIncluded = false
+let isUpperCaseIncluded = false
 
 
 let numberOfPasswords = 1

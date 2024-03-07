@@ -1,0 +1,141 @@
+body {
+    background: #051829;
+    /* color: rgb(79, 135, 255); */
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.heading {
+    text-align: center;
+    margin: 20px;
+}
+
+h1>span {
+    color: #00ffd5;
+    border-bottom: solid 2px #00ffd5;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    /* background-color: rgb(25, 42, 78); */
+}
+
+.container2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    background: #142738;
+    padding: 50px 50px 10px 50px;
+    border-radius: 10px;
+}
+
+.spcharcontainer,.includeNumbersContainer,.includeUpperCaseContainer,.customLengthContainer  {
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: #051829;
+    margin: 5px;
+    border-radius: 5px;
+    width: auto;
+    height: auto;
+}
+
+.spcharcontainer>input,.includeNumbersContainer>input,.includeUpperCaseContainer>input,.customLengthContainer>input  {
+    width: 20px;
+}
+
+.customLengthContainer {
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: #051829;
+    margin: 5px;
+    border-radius: 5px;
+    width: auto;
+    height: auto;
+}
+
+.lengthvaluedisplay {
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5px;
+    background: #051829;
+    border-radius: 5px;
+}
+
+.quantityOfPasswordsContainer {
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5px;
+    background: #051829;
+    border-radius: 5px;
+}
+
+textarea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.generateBtn {
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+    margin: 10px;
+    background: #143346;
+    border-radius: 10px;
+    border: solid 1px #00ffd5;
+}
+
+.generateBtn:hover {
+    scale: 1.01;
+    background: #143b5e;
+    color: #00ffd5;
+}
+
+.copyiconContainer {
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+    margin: 10px;
+    background: #143346;
+    border-radius: 10px;
+    border: solid 1px #00ffd5;
+}
+
+.copyiconContainer:hover {
+    scale: 1.01;
+    background: #143b5e;
+    color: #00ffd5;
+}
+
+.quantityOfPasswordsContainer>select{
+    padding: 10px;
+    border-radius: 5px;
+}
