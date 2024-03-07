@@ -1,6 +1,7 @@
 body {
-    background: #051829;
-    /* color: rgb(79, 135, 255); */
+    background: #062936;
+    color: rgb(79, 135, 255);
+    /* background: linear-gradient(to bottom right, #1b4366, #011220); */
     color: white;
     font-family: 'Courier New', Courier, monospace;
 }
@@ -31,9 +32,10 @@ h1>span {
     flex-direction: column;
     justify-content: center;
     /* align-items: center; */
-    background: #142738;
+    background: #143a47;
     padding: 50px 50px 10px 50px;
     border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 .spcharcontainer,.includeNumbersContainer,.includeUpperCaseContainer,.customLengthContainer  {
@@ -138,4 +140,9 @@ textarea {
 .quantityOfPasswordsContainer>select{
     padding: 10px;
     border-radius: 5px;
+}
+
+.Settings {
+    margin: 20px 0px 0px 0px;
+    color: #9ca4aa;
 }
