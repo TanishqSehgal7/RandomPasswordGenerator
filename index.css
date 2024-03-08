@@ -32,7 +32,7 @@ h1>span {
     flex-direction: column;
     justify-content: center;
     /* align-items: center; */
-    background: #202930;
+    background: #181f24;
     padding: 50px 50px 10px 50px;
     border-radius: 10px;
     margin-bottom: 10px;
@@ -44,16 +44,59 @@ h1>span {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
-    /* background: #051829; */
+    background: #2a333a;
+    align-items: center;
     margin: 5px;
     border-radius: 5px;
     width: auto;
     height: auto;
-    border: solid 1px #4bffab;
+    /* border: solid 1px #4bffab; */
 }
 
 .spcharcontainer>input,.includeNumbersContainer>input,.includeUpperCaseContainer>input,.customLengthContainer>input  {
-    width: 20px;
+    width: 25px;
+    height: 25px;
+    -webkit-appearance: none;
+    border: 1px solid #4bffab;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	border-radius: 3px;
+}
+
+
+.spcharcontainer>input:checked,
+.includeNumbersContainer>input:checked,
+.includeUpperCaseContainer>input:checked,
+.customLengthContainer>input:checked  {
+    background-color: #4bffab;
+	border: 1px solid #ffffff;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+	color: white;
+    content: '✔';
+}
+
+.spcharcontainer>input:active,
+.includeNumbersContainer>input:active,
+.includeUpperCaseContainer>input:active,
+.customLengthContainer>input:active,
+.spcharcontainer>input:checked:active,
+.includeNumbersContainer>input:checked:active,
+.includeUpperCaseContainer>input:checked:active,
+.customLengthContainer>input:checked:active  {
+    background-color: #4bffab;
+	border: 1px solid #247e54;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+	color: white;
+}
+
+.spcharcontainer>input:checked::after,
+.includeNumbersContainer>input:checked::after,
+.includeUpperCaseContainer>input:checked::after,
+.customLengthContainer>input:checked::after {
+    content: '✔';
+    font-size: 25px;
+    line-height: 0.8;
+    color: white;
+    transition: all .2s;
 }
 
 .customLengthContainer {
@@ -67,7 +110,7 @@ h1>span {
     border-radius: 5px;
     width: auto;
     height: auto;
-    border: solid 1px #4bffab;
+    /* border: solid 1px #4bffab; */
 }
 
 .lengthvaluedisplay {
@@ -78,7 +121,7 @@ h1>span {
     margin: 5px;
     /* background: #051829; */
     border-radius: 5px;
-    border: solid 1px #4bffab;
+    /* border: solid 1px #4bffab; */
 }
 
 .quantityOfPasswordsContainer {
@@ -87,8 +130,8 @@ h1>span {
     flex-direction: column;
     justify-content: center;
     margin: 5px;
-    /* background: #051829; */
-    border: solid 1px #4bffab;
+    background: #2a333a;
+    /* border: solid 1px #4bffab; */
     border-radius: 5px;
 }
 
@@ -144,6 +187,14 @@ textarea {
 .quantityOfPasswordsContainer>select{
     padding: 10px;
     border-radius: 5px;
+    height: 50px;
+    border: none;
+}
+
+.quantityOfPasswordsContainer>select>option{
+    padding: 10px;
+    height: 30px;
+    border-bottom: solid 1px #b6b5b5;
 }
 
 .Settings {
@@ -154,7 +205,7 @@ textarea {
 @media (max-width: 350px) {
 
     .container, .container2, .copyiconContainer,.customLengthContainer,.generateBtn,.includeNumbersContainer,.includeUpperCaseContainer,.lengthvaluedisplay,.quantityOfPasswordsContainer,.spcharcontainer{
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
     }
 
   }
@@ -164,4 +215,9 @@ textarea {
         font-weight: 900;
         font-size: x-small;
     }
+
+    .container2 {
+        padding: 10px 10px 10px 10px;
+    }
+
   }
